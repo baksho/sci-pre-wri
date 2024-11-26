@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bubble chart showing vaccination data for countries in Europe",
+  "data": {
+    "url": "https://raw.githubusercontent.com/baksho/sci-pre-wri/refs/heads/main/filtered_output.csv?token=GHSAT0AAAAAAC2BWESQTY5GUEE35T22KOKEZ2GB52A",
+    "format": {"type": "csv"}
+  },
+  "mark": {"type": "circle", "tooltip": true},
+  "encoding": {
+    "x": {
+      "field": "people_fully_vaccinated_per_hundred",
+      "type": "quantitative",
+      "title": "Percentage Fully Vaccinated"
+    },
+    "y": {
+      "field": "total_vaccinations_per_hundred",
+      "type": "quantitative",
+      "title": "Total Doses Administered (per 100 people)"
+    },
+    "size": {
+      "field": "population",
+      "type": "quantitative",
+      "title": "Population",
+      "scale": {"range": [100, 5000]}
+    },
+    "color": {
+      "field": "country",
+      "type": "nominal",
+      "title": "Country",
+      "scale": {"scheme": "category20"}
+    },
+    "tooltip": [
+      {"field": "country", "type": "nominal", "title": "Country"},
+      {
+        "field": "people_fully_vaccinated_per_hundred",
+        "type": "quantitative",
+        "title": "Fully Vaccinated (%)"
+      },
+      {
+        "field": "total_vaccinations_per_hundred",
+        "type": "quantitative",
+        "title": "Total Doses Administered (per 100 people)"
+      }
+    ]
+  },
+  "width": 800,
+  "height": 600,
+  "config": {}
+}
